@@ -5,6 +5,13 @@ public class LinkedListImpl implements LinkedListInt  {
     LinkedListNode tail;
     Integer count = 0;
 
+    public LinkedListNode getNodeAtIndex(Integer index){
+        LinkedListNode el = head;
+        for (int i = 1; i<index; i++)
+            el=el.next;
+        return el;
+    }
+
     public LinkedListImpl(){}
 
     @Override
@@ -40,12 +47,19 @@ public class LinkedListImpl implements LinkedListInt  {
 
     @Override
     public void addElementAtIndex(Integer element, Integer index) {
-        count++;
-        if (index==1){addFirstElement(element);}
-        else if (index==count-1) {addLastElement(element);}
+        if (index==1)
+            addFirstElement(element);
+        else if (index==count+1)
+            addLastElement(element);
         else {
+            count++;
             LinkedListNode node = new LinkedListNode(element);
-
+            LinkedListNode el1 = getNodeAtIndex(index-1);
+            LinkedListNode el2 = getNodeAtIndex(index);
+            el1.setNextLink(node);
+            node.setPrevLink(el1);
+            el2.setPrevLink(node);
+            node.setNextLink(el2);
         }
     }
 
@@ -78,8 +92,10 @@ public class LinkedListImpl implements LinkedListInt  {
     @Override
     public void removeElementAtIndex(Integer index) {
         count--;
-        if (index==1){removeFirstElement();}
-        else if (index==count+1) {removeLastElement();}
+        if (index==1)
+            removeFirstElement();
+        else if (index==count+1)
+            removeLastElement();
         else {}
     }
 
