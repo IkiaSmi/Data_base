@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите номер исполняемой программы: ");
-        int comanda =scanner.nextInt();
+//        int comanda =scanner.nextInt();
 //        switch (comanda){
 //            case 1:
 //                break;
@@ -17,6 +17,8 @@ public class Main {
         list.addFirstElement(1);
         list.addLastElement(2);
         list.addFirstElement(3);
+        list.addElementAtIndex(5,2);
+        list.removeElementAtIndex(3);
 
         System.out.println(list);
         System.out.println(list.getSize());

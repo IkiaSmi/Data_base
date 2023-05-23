@@ -91,12 +91,17 @@ public class LinkedListImpl implements LinkedListInt  {
 
     @Override
     public void removeElementAtIndex(Integer index) {
-        count--;
         if (index==1)
             removeFirstElement();
         else if (index==count+1)
             removeLastElement();
-        else {}
+        else {
+            count--;
+            LinkedListNode el1 = getNodeAtIndex(index-1);
+            LinkedListNode el2 = getNodeAtIndex(index+1);
+            el1.setNextLink(el2);
+            el2.setPrevLink(el1);
+        }
     }
 
     @Override
