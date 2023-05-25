@@ -1,9 +1,10 @@
 package List;
 
 public class LinkedListImpl implements LinkedListInt  {
-    LinkedListNode head;
-    LinkedListNode tail;
-    Integer count = 0;
+    private LinkedListNode head;
+    private LinkedListNode tail;
+    private Integer count = 0;
+
 
     public LinkedListNode getNodeAtIndex(Integer index){
         LinkedListNode el = head;
@@ -12,7 +13,9 @@ public class LinkedListImpl implements LinkedListInt  {
         return el;
     }
 
-    public LinkedListImpl(){}
+    public LinkedListImpl(){
+        System.out.println("Список создан.");
+    }
 
     @Override
     public Integer getSize() {return count;};
